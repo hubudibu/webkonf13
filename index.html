@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>JavaScript Fogyókúra // Cutting Down on JavaScript</title>
+
+	<meta property="og:description" content="Web Conference Hungary, Budapest, 9 November 2013" />
+	<meta property="og:image" content="http://fejes.me/webkonf13/sharecat.png" />
+
+
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,700|Merriweather:400,700' rel='stylesheet' type='text/css' />
+
+	<link rel="stylesheet" type="text/css" href="share.css" />
+</head>
+<body>
+
+<div class="wrap">
+
+	<div id="hu"></div>
+	<div id="en"></div>
+
+	<div class="prez">
+		<div class="gprez"><iframe src="https://docs.google.com/presentation/d/1JlgUEWxV3fxezQlB3yAREoD55y96Fxx7QWGs_bm96Vk/embed?start=false&loop=false&delayms=3000" frameborder="0" width="534" height="430" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></div>
+
+		<div class="meta en">
+			<h1>Cutting Down on JavaScript</h1>
+
+			<p class="me">
+				<span class="av"><img src="webconffej.png"/></span>
+				<span class="name">Anikó Fejes</span>
+				<a class="tw" href="https://twitter.com/hubudibu" target="_blank" title="@hubudibu">twitter</a>
+				<a class="cp" href="http://codepen.io/hubudibu/tag/webconf" target="_blank" title="codepen">codepen</a>
+				<a class="in" href="http://hu.linkedin.com/in/anikofejes" target="_blank" title="cv">linkedin</a>
+			</p>
+
+			<h2>Web Conference Hungary <br />
+				Budapest, 9 November 2013</h2>
+			<a class="languageToggler" href="#hu">
+				Váltás magyarra</a>
+		</div>
+
+		<div class="meta hu">
+			<h1>JavaScript Fogyókúra</h1>
+
+			<p class="me">
+				<span class="av"><img src="webconffej.png"/></span>
+				<span class="name">Fejes Anikó</span>
+				<a class="tw" href="https://twitter.com/hubudibu" target="_blank" title="@hubudibu">twitter</a>
+				<a class="cp" href="http://codepen.io/hubudibu/tag/webconf" target="_blank" title="codepen">codepen</a>
+				<a class="in" href="http://hu.linkedin.com/in/anikofejes" target="_blank" title="cv">linkedin</a>
+			</p>
+
+			<h2>Magyarországi Web Konferencia <br />
+				Budapest, 2013 November 9.</h2>
+			<a class="languageToggler" href="#en">Switch to English</a>
+		</div>
+	</div>
+
+	<input type="checkbox" id="noteExpander" />
+	<ol class="notes en">
+		<li>
+			<p>Cutting Down on JavaScript</p>
+		</li>
+		<li>
+			<p>A few months ago HVG published this handy article about fixing our browser's biggest security vulnerability, namely javascript.</p>
+			<p>Apart from the fact that their site would really look much better with javascript turned off and the huge banners eliminated, I was still a bit worried. I spend my days with javascript, and would be really sad to let it go.</p>
+		</li>
+		<li>
+			<p>So I began to wonder: how many people read this? How many of their faithful readers were convinced by HVG to put on their tin foil hats and disable javascript in their browsers? Was there a significant drop in javascript usage around april ‘13 in Hungary? Does anyone even measure this somehow?</p>
+			<p>Most of us use analytics to get data about our users, but that's a javascript based solution, so it has some difficulties in such matters.</p>
+			<p>My non representative survey found that @ddq is the only living creature on the hungarian internets who has any data on his users' javascript support. And he's not sharing.</p>
+		</li>
+		<li>
+			<p>OK, no data from Hungary, but we're already knee deep in javascript support analytics, so let's try a broader search.</p>
+			<p>@hipra pointed me to JS Pixel: they provide a snippet that you can paste into your page to contribute to their statistics.</p>
+			<p>They use 2 images, one inserted with javascript, and one in a noscript tag, to determine javascript support in the visiting browser.</p>
+		</li>
+		<li>
+			<p>The guys at gov.uk (GDS) went one step further: they use a third image in a simple image tag that all browsers would request.</p>
+			<p>They found that a significant amount of visitors didn't get either the script or the noscript image. 0.9% of visitors had javascript enabled, but didn't get javascript enhanced content. They listed a number of possible reasons: corporate blocking or stripping of javascript tags, prior javascript errors in the browser, network errors, etc.</p>
+		</li>
+		<li>
+			<p>So, 1.1% seems like a small number, why should we care? I say we should care because we could.</p>
+			<p>While making the content accessible for as broad audiences as possible, with todays technologies we can enhance our users experience without the use of client-side scripting, thus pleasing our fellow tin foil hatted internetters.</p>
+		</li>
+		<li>
+			<p>Let's rename the candy layer on this m&amp;m for my selfish purpose.</p>
+			<p>What do we use client-side scripting for? Most of the time, it's handling user interactions, interface state changes for us.</p>
+			<p>I say we can do a lot of that without the use of scripting.</p>
+		</li>
+		<li>
+			<p>Or at least that's the direction we're heading. The browser vendors, the standards bodies are paying attention to us developers' needs and and are leading innovation accordingly. And I'm pretty sure that ie6-8 users will die out much faster than users without javascript. That's why it makes perfect sense to experiment with some javascript free solutions for our everyday interaction needs.</p>
+		</li>
+		<li>
+			<p>Of course, if your goal is to create 3D squirrels with WebGL and live webcam chat with WebRTC, then javascript is part of your main content, it's in the peanut in your m&amp;m. But if it's about the states and state changes of your UI, then you could easily make that accessible for that 1.1% with considering javascript free solutions instead of copy-pasting jQuery plugins.</p>
+		</li>
+		<li>
+			<p>Just like Horse, I like javascript, I work with it every day and I acknowledge that jazz and its power.</p>
+			<p>But today I'm not here to talk about javascript. I brought you something else. Let's see.</p>
+		</li>
+		<li>
+			<p>Let me present you todays second crocodile game.</p>
+			<p>It uses no javascript at all. And not just because it's a gif.</p>
+			<p>It's an awesome demo by <a target="_blank" href="https://developer.mozilla.org/pt-BR/profiles/geckotang">geckotang</a>, the first time I saw it was in <a target="_blank" href="https://speakerdeck.com/snookca/your-css-is-a-mess-from-smartweb">@snookca ‘s presentation at SmartWeb Conf Bucharest.</a></p>
+		</li>
+		<li>
+			<p>So I was sitting there, awed, immediately firing up that demo page to figure out these crocodiles' secrets, while the guy next to me had this exact reaction as this cat here. HTML can not do that. CSS can't count.</p>
+			<p>Well, that's true. You can't exactly count clicks in CSS. But you can detect user interactions, you can change the UI accordingly via CSS, and you can store its state in your HTML.</p>
+			<p>But first, let's see some simpler examples that we can use in our everyday work.</p>
+		</li>
+		<li>
+			<p>So you need some jazz in your UI. What do you do? Honestly, we've all been there. I'm not proud, but you have to start somewhere. Just google for the jQuery plugin you need. There will be hundreds.</p>
+			<p>I found that most of the time what we need is some form enhancement, or custom UI elements like accordions, tabs or carousels.</p>
+		</li>
+		<li>
+			<p>Let's see what we can achieve here without javascript.</p>
+		</li>
+		<li>
+			<p>Custom form elements that know a bit more than a simple text input, hold our user's hands and makes it easier for them to input the right data? HTML5 can do that.</p>
+		</li>
+		<li>
+			<p>That's it. Some new input types, the browser does the rest.</p>
+		</li>
+		<li>
+			<p>And how does the browser do that?</p>
+			<p>It's a simple custom form element, a number input, as seen in chrome dev tools. (enable “show shadow dom” in the dev tools settings to see this) This input tag has its own document fragment. What we see is called the shadow dom, which is a really interesting topic on its own and would definitely worth its own talk.</p>
+			<p>Right now let's just say that you can see its dom structure and you can define custom styles for its elements using the appropriate pseudo selectors.</p>
+			<p>Or at least in the future you can do that. Its new, it's subject to change, but it's going to be awesome.</p>
+		</li>
+		<li>
+			<p>And speaking of future… that's the browser support for these new input types &amp; attributes. OK, we're not quite there yet.</p>
+			<p>But our browsers do this graceful degradation thing and we love them for it: if they find a new input type they can't interpret, they won't just throw up their hands and crash, they will display a simple text input instead. And that's totally OK, we just need a little more validation.</p>
+		</li>
+		<li>
+			<p>So let's move on to validation.</p>
+		</li>
+		<li>
+			<p>Required fields, limits, format validation.</p>
+		</li>
+		<li>
+			<p>All these things with some simple attributes. The rest is handled by the browser. And it won't let the form be submitted until it's all valid.</p>
+		</li>
+		<li>
+			<p>OK, but what if the user comes from an ie 9 and makes a mistake and submits the form?</p>
+			<p>Well, I'm pretty sure you have server side validation too, because that's basic, and you should have that, and I shouldn't have to convince you of its importance. The page reloads, the user gets some detailed description of what they did wrong, submits again, problem solved. Right?</p>
+		</li>
+		<li>
+			<p>And you can customize your form using the appropriate pseudo selectors. Red outline for the invalid input field, without the need of toggling classes via javascript, and such.</p>
+		</li>
+		<li>
+			<p>And that's it about forms.</p>
+		</li>
+		<li>
+			<p>Let's move on to custom UI components.</p>
+		</li>
+		<li>
+			<p>Starting from the basics, you've probably already used some of these user actions pseudo-classes, at least for some image swap technique, a dropdown menu, or some tooltips appearing on hover.</p>
+		</li>
+		<li>
+			<p>They have been here for a while.</p>
+		</li>
+		<li>
+			<p>What's more interesting is the :target pseudo class. Now it's not just a momentary interaction we're speaking of, but a state of our interface, stored in the URI's fragment identifier, that the user can change with the click of a link. We can use this pseudo class to style our UI based on this state, and to show/hide content accordingly.</p>
+		</li>
+		<li>
+			<p>At least in ie9+ and all other modern browsers.</p>
+		</li>
+		<li>
+			<p>So what is it good for? For example, we can create an animated accordion, javascript free.</p>
+		</li>
+		<li>
+			<p>What we need is some # links and containers with matching id to show.</p>
+			<p>We hide the container elements, and show only the targeted one with the help of the :target pseudo class.</p>
+			<p>Some drawbacks of this technique:</p>
+			<ul>
+				<li>if we have more content below our accordion, the content will jump on every click, as it's the # links default behaviour.</li>
+				<li>while changing the URI we are messing with browser history, so pressing the browser back button will only get us back to the previous accordion state. That can be either good or bad, just don't forget about it.</li>
+				<li>a fragment identifier is a unique thing, so we can have only 1 accordion/any target driven control on a page.</li>
+			</ul>
+		</li>
+		<li>
+			<p>Notice the dd:not(:target) line that I used to hide the containers: it seems unnecessary, but think about it, if I used a simple dd selector, what would a poor ie8 user see? a closed accordion with unreachable content. But since the :not() pseudo selector is ie9+ too, our faithful oldIE user will get an always open accordion this way.</p>
+		</li>
+		<li>
+			<p>Another good use case is a mobile menu toggle. On mobile devices it's even more important to cut down on file size, the number of requests, and using the device's resources, so this is the best place to experiment with javascript free solutions. We don't have to worry about ie support, mobile browsers are good at supporting the technologies needed for this. And this time the drawbacks mentioned earlier are not that severe: as we're at the top of the page, there is no jumping, and as the only thing that fits our small viewport is the menu, the uniqueness is not a problem either.</p>
+		</li>
+		<li>
+			<p>It works just as the accordion in the previous example: we only show the mobile menu if its #mobile-menu parent element is targeted.</p>
+			<p>The close link is a bit tricky: it is positioned right above the menu link, so clicking it “again” will close the menu by targeting the #header element instead.</p>
+		</li>
+		<li>
+			<p>There are other ways to store UI states in a CSS accessible way.</p>
+			<p>By using checkboxes or radio buttons, we can select the checked ones with the :checked pseudo class, and change our UI accordingly.</p>
+		</li>
+		<li>
+			<p>It's supported in ie9+, just as :target is.</p>
+		</li>
+		<li>
+			<p>Basic use case: toggling the visibility of sub-options in form.</p>
+		</li>
+		<li>
+			<p>If the dinosaur radio is checked, we display its following ul sibling. That's what that little squiggle there does.</p>
+		</li>
+		<li>
+			<p>The squiggly thing is called general sibling combinator, you can select any following siblings with that.</p>
+			<p>As siblings, they have to be on the same level in the dom tree, have to have the same parents, that's why I didn't put the input inside the label tag.</p>
+			<p>As you will see, the sibling combinator can be incredibly useful: you can hide the element storing the UI state (the checked checkbox, or a targeted element), and style only their siblings.</p>
+		</li>
+		<li>
+			<p>The squiggle wins at browser support, ie7+ is much better than what :checked has, so nothing to worry about here.</p>
+		</li>
+		<li>
+			<p>For example, we can recreate the accordion from the :target example without its drawbacks.</p>
+			<ul>
+				<li>no jumping or history problems, as we're not touching the URI.</li>
+				<li>we can have as many different accordions as we want, just use different names for the inputs.</li>
+			</ul>
+		</li>
+		<li>
+			<p>We need a label instead of the link in the target example,</p>
+			<p>linked to an input before it (the tilde can only select the siblings after our input field) with its for attribute,</p>
+			<p>and some container for the accordion content whose visibility/height we can toggle based on the checked state of the input.</p>
+			<p>I also rotated the little triangle on the selected toggle, which I couldn't do at the :target example, with that dom structure.</p>
+		</li>
+		<li>
+			<p>And this rotate is ie10+ supported, so no fun for ie9 users.</p>
+		</li>
+		<li>
+			<p>By changing the radio buttons to checkboxes we can create simple dropdowns from our accordion.</p>
+		</li>
+		<li>
+			<p>Just like this.</p>
+		</li>
+		<li>
+			<p>Let's move on to tabbed navigation.</p>
+		</li>
+		<li>
+			<p>Cats and stuff.</p>
+		</li>
+		<li>
+			<p>So basically we have hidden inputs, labels to check them, and some container whose content we want to show/hide based on the checked state of our inputs.</p>
+			<p>Some difficulties arise: In the previous examples, the checked input and its corresponding toggled content were siblings and separated in their own li from the other inputs &amp; contents, so the matching content was easily selectable with the general sibling selector. But now we want the tabs first in our dom tree, then the toggled contents after them.</p>
+			<p>That's where our CSS starts to become lengthy, some might say ugly. I used nth-of-type and nth-child selectors to match the inputs and the toggled contents by index: the first toggled input shows the first section in the tab content div, the second input toggles the second section, and so on. If you have 15 tabs then it's 15 lines of CSS selectors.</p>
+			<p>But it works, and at this point we have a somewhat general solution to toggle states. If you put some hidden inputs at the beginning of your code, you can point labels to them from anywhere and style anything based on their states with this indexed solution.</p>
+		</li>
+		<li>
+			<p>And nth-child is supported ie9 and up, so we didn't lose anyone with this.</p>
+		</li>
+		<li>
+			<p>I promised some carousels, but I'm sure you can figure it out by now :)</p>
+		</li>
+		<li>
+			<p>Let's see a simple cat carousel.</p>
+		</li>
+		<li>
+			<p>We have a series of hidden radio buttons to store the state, a list of cats to push around, and some labels with arrows to check the inputs with.</p>
+			<p>We transform the cat list based on which radio is checked, and switch the labels, as we saw with the mobile menu example, so the next button is actually a label for the next radio input.</p>
+		</li>
+		<li>
+			<p>And the promised crocodiles. Let's see some interesting details from its source:</p>
+		</li>
+		<li>
+			<p>These are the crocodiles in the #enemy div. Each crocodile is a radio input.</p>
+			<p>The numbers are in the #score div, more precisely it's the background image of its last element, the #score_11 div.</p>
+			<p>Above it you can see radio inputs, one for each crocodile, linked together with their name attribute.</p>
+		</li>
+		<li>
+			<p>Once you hit a crocodile, two things happen:</p>
+			<ul>
+				<li>the crocodile input is checked, it's animation is removed (left), so the crocodile disappears</li>
+				<li>its matching input in the score div is unchecked. It gets back its height, pushing the score_11 div down by the height of one row on the score image (right)</li>
+			</ul>
+			<p>So that's how CSS can count clicks. Magic!</p>
+		</li>
+		<li>
+			<p>So that's all, go and try this out, and show me what you did!</p>
+		</li>
+		<li>
+			<p>That one says “Questions?”</p>
+			<p>Comments welcome, you can find me on twitter at <a href="https://twitter.com/hubudibu" title="@hubudibu" target="_blank">@hubudibu</a>, or shoot me an email, that's my new email address there and should probably work.</p>
+			<p>You can find <a href="http://codepen.io/hubudibu/tag/webconf"  target="_blank">the examples at codepen</a>,</p>
+			<p>and <a href="http://www.one-tab.com/page/-p32SLqvTiGQZgicT7jjIA" target="_blank">all the links that were open while I was writing this via onetab</a></p>
+			<p>Thanks!</p>
+			<p>Anikó</p>
+		</li>
+	</ol>
+
+	<ol class="notes hu">
+		<li>
+			<p>JavaScript Fogyókúra</p>
+		</li>
+		<li>
+			<p>Néhány hónapja jelent meg hvg.hu-n ez a remek cikk arról, hogyan javíthatjuk meg 1 perc alatt a böngészőnk legnagyobb biztonsági hibáját. Ami a javascript.</p>
+			<p>Annyiban mindenképp igazuk volt, hogy tényleg jobban néz ki az oldaluk kikapcsolt javascripttel, és ezáltal hatalmas bannerek nélkül, de azért én egy kicsit elszomorodtam. Javascripttel töltöm a napjaimat, és még nem szeretnék tőle elbúcsúzni.</p>
+		</li>
+		<li>
+			<p>Felmerült bennem a kérdés: vajon mekkora visszaesést lehetett tapasztalni a magyar internetet javascripttel böngészők számában április táján? Egyáltalán szoktunk javascript támogatást mérni?</p>
+			<p>Legtöbben google analytics-et használunk a látogatóink mérésére, ami pedig egy javascript követőkóddal kezdődik, szóval ilyen feladattal lennének gondjai.</p>
+			<p>A twitteren végzett nem reprezentatív felmérésem szerint @ddq az egyetlen a magyar interneten, aki méri a látogatói javascipt támogatását. És ő sem volt hajlandó adatokat kiszivárogtatni.</p>
+		</li>
+		<li>
+			<p>Hazai adatokat tehát nem sikerült szerezni, de ha már itt tartunk, nézzünk kicsit kijjebb.</p>
+			<p>@hipra mutatta a JS Pixel kezdeményezést. Ők egy olyan követőkódot adnak, ami 2 képből áll: az egyiket javascript illeszti be, a másik egy noscript tagben van. Ezeknek a lekérési arányából jött ki az általuk mért 0.63%-os adat.</p>
+			<p>Egy copy-paste mozdulattal lehet kontributálni a statisztikájukhoz, mindenkinek ajánlom.</p>
+		</li>
+		<li>
+			<p>A mostanában méltán híres gov.uk srácok egyel tovább mentek: ők használnak egy harmadik képet is a mérésükhöz, amit egy egyszerű img tag révén minden látogató lekér.</p>
+			<p>Azt találták, hogy a noscript tages, tehát explicit kikapcsolt javascriptes lekéréseken felül a látogatók további 0.9%-a nem kapta meg sem a javascripttel, sem a noscript taggel elhelyezett képet. Erre jópár lehetséges okot felsorolnak: szigorú vállalati tűzfalak, a script tageket kipucoló szuperbiztonságos hálózatok, javascript hibák máshol az oldalon, vagy egyszerűen hálózati hiba egy mobil eszközön. Szegény mobilnetezők!</p>
+		</li>
+		<li>
+			<p>1.1% még mindig nagyon kicsi számnak tűnik, miért kéne ezzel foglalkoznunk? Miért is ne tennénk?</p>
+			<p>Arról sokat esik szó, hogy a lényeget, a tartalmunkat próbáljuk minél szélesebb felhasználói köröknek eljuttatni, ne zárjunk ki senkit fölöslegesen. De egy kis plusz odafigyeléssel a másodlagos dolgokat, a megjelenítés és az interakciók finomságait is egyel nagyobb felhasználói rétegnek elérhetővé tehetjük.</p>
+		</li>
+		<li>
+			<p>Öncélúan átneveztem az m&amp;m-ünk cukor rétegét.</p>
+			<p>Mire használunk legtöbbször javascriptet az oldalainkon? Felhasználói interakciókra reagálunk, változtatjuk, animáljuk a UI egyes részeit ezeknek megfelelően.</p>
+			<p>Szerintem ebből sok mindent megtehetünk javascript nélkül is.</p>
+		</li>
+		<li>
+			<p>Legalábbis errefelé haladunk. A böngészőgyártók, a szabványosítók figyelnek ránk felhasználókra, figyelik, hogy hogy használjuk a rendelkezésre álló technológiákat, és hogy mire van szükségünk, és ennek megfelelően terelgetik a fejlődést.</p>
+			<p>És egész biztos vagyok benne, hogy az ie6-8 felhasználók előbb fognak kihalni, mint a javascript nélkül internetező alufóliasapkások. Szerintem ezért is van értelme javascript mentes megoldásokkal kisérletezni.</p>
+		</li>
+		<li>
+			<p>Persze ha az a cél, hogy 3D-s mókusokat teremtsünk WebGL-el, vagy videócseteljünk WebRTC-vel, abból nyilván nem akarjuk kispórolni a javascriptet, mert ott az a lényeg. De ha csak a felhasználói felületünk állapotáról és annak változásairól van szó, azt nyugodtan elérhetővé tehetjük annak az 1.1%-nak is, ha kicsit gondolkodunk a HTML, CSS lehetőségeiről ész nélküli jQuery plugin copypastelés helyett.</p>
+		</li>
+		<li>
+			<p>Leszögezném, hogy szeretem a javascriptet, nem véletlenül töltöm vele a napjaimat, elismerem a lehetőségeit.</p>
+			<p>De ma nem róla lesz szó.</p>
+		</li>
+		<li>
+			<p>Íme a mai nap második krokodilos játéka.</p>
+			<p>Egyáltalán nem használ javascriptet. És nem csak azért, mert ez egy animgif.</p>
+			<p><a href="https://developer.mozilla.org/pt-BR/profiles/geckotang" target="_blank">Geckotang</a> e remek demóját először <a href="https://speakerdeck.com/snookca/your-css-is-a-mess-from-smartweb" target="_blank">@snookca SmartWeb Konfos előadásában láttam.</a></p>
+		</li>
+		<li>
+			<p>A mellettem ülő vadidegen rögtön a fenti reakcióval élt. HTML ilyet nem tud. CSS-ben nem tudsz számolni.</p>
+			<p>Ami valamilyen szinten igaz is. CSS-el kattintásokat megszámolni nem nagyon lehet. De azért tudunk vele felhasználói interakciókra reagálni, tudunk annak megfelelően változtatni a felhasználói felületünk megjelenésén, tudunk állapotokat tárolni a HTML-ünkben.</p>
+			<p>De kezdjük valami egyszerűbbel, amit talán többet tudunk használni, mint egy krokodilos játékot. A végén azért igérem visszatérünk erre is.</p>
+		</li>
+		<li>
+			<p>Szóval kellene valami fancyzés az oldalunkra. Hol kezdjük? Kérdezzük meg Google barátunkat a megfelelő jQuery pluginról. Van is bőven ilyen.</p>
+			<p>Nekem úgy tűnt, legtöbbször valamilyen form okosításra, vagy egyedi UI komponensre van ilyenkor szükségünk.</p>
+		</li>
+		<li>
+			<p>Nézzük, mit tudunk ezekből kihozni javascript nélkül.</p>
+		</li>
+		<li>
+			<p>Egyedi form elemek, amik kicsit többet tudnak egy egyszerű text inputnál, amik vezetik a felhasználót, egyszerűbbé teszik az adatbevitelt? HTML5-el lehet ilyeneket.</p>
+		</li>
+		<li>
+			<p>Ennyi az egész. Néhány új érték a type attribútumnak, a böngésző elintézi a többit.</p>
+		</li>
+		<li>
+			<p>De mi az, hogy a böngésző elintézi?</p>
+			<p>Amit itt láttok, az talán a legegyszerűbb ilyen egyedi kinézetű input mező, egy number típusú input. Chrome dev toolsban ha bekapcsoljátok a "show shadow dom" opciót, látszik az inputmezőnk saját document fragmentje. Ezt hívják "shadow dom"-nak, ami önmagában is megérne egy előadást, most nem is mennék bele mélyebben. Nekünk egyelőre legyen elég annyi, hogy láthatjuk az elemeink felépítését, és személyre szabhatjuk a megfelelő pszeudo osztályok segítségével.</p>
+			<p>Legalábbis személyre fogjuk tudni szabni. Ez még eléggé gyerekcipőben jár.</p>
+		</li>
+		<li>
+			<p>Ahogy igazából a speciális input típusok nagy része is.</p>
+			<p>De szerencsére a böngészőink remekül kezelik a hiányosságaikat:
+				ha olyan típust találnak, amit még nem tudnak értelmezni, egy egyszerű text input mezőt fognak megjeleníteni helyette. Ami teljesen használható, csak esetleg valamivel több validációt igényel.</p>
+		</li>
+		<li>
+			<p>Menjünk is tovább a validációra.</p>
+		</li>
+		<li>
+			<p>Kötelező mezők, értékhatárok, formátum ellenőrzés.</p>
+		</li>
+		<li>
+			<p>Mindehhez elég néhány egyszerű attribútum. A többit, ismét, a böngészőre bízhatjuk, aki nem fogja tovább engedni a formot, amíg nem valid az összes mezője.</p>
+		</li>
+		<li>
+			<p>Jó, de mi történik, ha a felhasználónk ie9-et használ, ami hagyja, hogy elküldje a formot hibás adatokkal?</p>
+			<p>Hát, szerintem, mivel úgyis van szerver oldali validáció is (mert az mindig van, ne nekem kelljen meggyőzni senkit ennek a fontosságáról), ezért ilyenkor egyszerűen egy oldal újratöltés után fog ugyanolyan, vagy még hasznosabb hibaüzenetet, iránymutatást kapni a felhasználó a form kitöltéséhez.</p>
+		</li>
+		<li>
+			<p>Okos böngészőkben pedig formázhatjuk a mezőket a megfelelő pseudo szelektorokkal a validációs állapotuk szerint. Piros körvonal a hibás mező körül, anélkül, hogy javascripttel kellene classokat kapcsolgatnunk rajta, és társai.</p>
+		</li>
+		<li>
+			<p>Ennyit a formokról.</p>
+		</li>
+		<li>
+			<p>Nézzük az egyedi UI komponenseket.</p>
+		</li>
+		<li>
+			<p>Miről is beszélünk? Interakciót kezelünk CSS-el. Kezdjük az alapokkal. Biztos mind használtatok már ilyen felhasználói akció pszeudo osztályokat. Képcserélgetés hoverre, lenyíló menük, tooltipek, ilyesmik. Ebbe nem is mennék mélyebben bele.</p>
+		</li>
+		<li>
+			<p>Velünk vannak már egy ideje.</p>
+		</li>
+		<li>
+			<p>Ami viszont szerintem sokkal izgalmasabb, az a :target pszeudo osztály. Itt már nem csak pillanatnyi interakcióról beszélünk, amíg az egér a cél fölött lebeg. Hanem a UI egy állapotáról, az URI végén #-el egy "fragment identifier"-ben tárolva, amit a felhasználó egy link kattintással megváltoztathat, mi pedig változtathatjuk a felület megjelenését ennek megfelelően.</p>
+		</li>
+		<li>
+			<p>Legalábbis ie9-től felfelé.</p>
+		</li>
+		<li>
+			<p>Mire is jó ez? Például accordiont készíthetünk javascript nélkül.</p>
+		</li>
+		<li>
+			<p>Szükségünk lesz néhány linkre, ami #-el mutat az oldalon belül a megfelelő id-jú container elemre.</p>
+			<p>Elrejtjük a container elemeket, majd mindig csak azt az 1-et mutatjuk meg, amire az utoljára kattintott link hivatkozik, a :target pszeudo osztály segítségével.</p>
+			<p>Van néhány hátránya ennek a módszernek:</p>
+			<ul>
+				<li>Minthogy oldalon belüli linkeket kattintunk, az oldal ugrálni fog, mindig a kiválasztott container elemre.</li>
+				<li>Minden kattintással átíródik az URL, ezáltal belenyúlunk a böngésző előzményekbe: a vissza gombra kattintva a felhasználó nem az előző oldalra fog jutni, hanem csak az előző accordion állapothoz. Ebből persze előnyt is lehet kovácsolni, csak ne felejtkezzünk meg róla.</li>
+				<li>Az URL-ben csak egy állapotot tárolhatunk, mindig csak egy elem lesz kiválasztható :target szelektorral, tehát csak 1 ilyen accordionunk (vagy bármilyen hasonló elven működő komponensünk) lehet aktív egy oldalon.</li>
+			</ul>
+		</li>
+		<li>
+			<p>Nézzük meg kicsit jobban, hogyan is rejtettük el a nem aktív konténer elemeket. a dd:not(:target) sor kicsit túlzásnak tűnhet itt, de gondoljuk végig, ha egyszerűen egy dd szelektorral tűntetném el a konténereket, egy ie8 felhasználó mit látna? Egy bezárt accordiont, amit sehogy sem tud kinyitni, egy rakás elérhetetlen szöveggel benne. De mivel a :not pszeudo szelektor támogatottsága is ie9-el kezdődik, mint a :targeté, így ezzel a megoldással a módszerünket nem támogató böngészővel érkezők egy mindig nyitott accordiont látnak hozzáférhető tartalommal.</p>
+		</li>
+		<li>
+			<p>Nézzünk egy másik :targetes példát: lenyíló mobil menü. Mobilon még fontosabb a kisebb fájlméret, a kevesebb lekérés, a spórolás, és a mobil böngészők elég jó helyen állnak a most nekünk szükséges technológiák támogatásában, szóval ez jó terep a kísérletezésre.</p>
+			<p>A :targetes módszer hátrányait ebben az esetben megkerültük: mivel a menünk amúgyis az oldal tetején van, nem kell az ugrálás miatt aggódnunk; és az egyediség sem nagy gond, mert a menü amúgyis elfoglalja az egész kijelzőnket.</p>
+		</li>
+		<li>
+			<p>Ugyanaz a működési elv, mint az előző accordionnál: csak akkor mutatjuk meg a mobil menü elemet, ha #mobile-menu id-jú szülőjére mutat a fragment identifier.</p>
+			<p>A bezáró gomb már egy kicsit trükkösebb: ilyenkor egy másik, a #head elemre mutató linket pozícionálunk a menü gomb helyére, így ha még egyszer ugyanoda kattintunk, a fragment identifier átíródik, a menü pedig bezáródik.</p>
+		</li>
+		<li>
+			<p>Milyen más lehetőségeink vannak CSS-el hozzáférhető UI állapot tárolásra?</p>
+			<p>Vannak erre megfelelő form elemeink: például rá tudunk szelektálni egy kiválasztott checkboxra vagy rádiógombra a :checked pszeudo osztály segítségével.</p>
+		</li>
+		<li>
+			<p>A :checked a :targethez hasonlóan i9-től felfelé támogatott.</p>
+		</li>
+		<li>
+			<p>Nézzük a legegyszerűbb esetet: alopciók megjelenítése.</p>
+		</li>
+		<li>
+			<p>Ha a felhasználó a dínó opciót választja, megjelenítjük az utána következő ul elemet. Az a kis hullámvonal lesz ebben segítségünkre.</p>
+		</li>
+		<li>
+			<p>A hullámvonal egy általános testvér kombinátor, amivel rá tudunk szelektálni egy elemet követő, a domban vele egy szinten lévő, vele közös szülőkkel rendelkező, azaz fiatalabb testvér elemeire.</p>
+			<p>Fontos, hogy a becsekkelhető inputunk, és a megjelenítendő konténer elemünk (vagy annak egy szülője) egy szinten legyen a domban, ezért nem tehettük pl. az inputot a label tagbe.</p>
+			<p>Majd látni fogjuk, mennyire hasznos tud lenni ez a kombinátor: magát az állapotot tároló elemet, az input mezőt vagy a targetált id-jú elemet elrejthetjük, és állapotuktól függően formázhatjuk testvéreiket.</p>
+		</li>
+		<li>
+			<p>A hugakombinátor támogatottságban veri a :checked és a :target pszeudo osztályainkat, szóval itt nem kell felhasználók elvesztésén aggódnunk.</p>
+		</li>
+		<li>
+			<p>Az előző :targetes példából vett accordiont is elkészíthetjük :checked segítségével, a :target hátrányai nélkül:</p>
+			<ul>
+				<li>Nem fog ugrálni az oldal, és nem zavarunk bele a böngésző előzményeibe.</li>
+				<li>Lehet egyszerre több accordionunk nyitva az oldalon.</li>
+			</ul>
+		</li>
+		<li>
+			<p>Link helyett egy label elemet kattintunk, ami for attribútumán keresztül az előtte lévő elrejtett rádió gombot kapcsolgatja. Az utána következő konténer elemet pedig az input :checked állapota alapján jelenítjük meg.</p>
+		</li>
+		<li>
+			<p>A kis apróság, a kiválasztott label utáni háromszög forgatása csak ie10 fölött működik, itt érdemes élőben más megoldás után nézni.</p>
+		</li>
+		<li>
+			<p>Ha a rádiógombokat checkboxra cseréljük, egyszerű lenyíló tartalmat kapunk az accordion helyett.</p>
+		</li>
+		<li>
+			<p>Ennyi az egész.</p>
+		</li>
+		<li>
+			<p>Nézzük a tabos navigációt.</p>
+		</li>
+		<li>
+			<p>Macskák meg ilyenek.</p>
+		</li>
+		<li>
+			<p>A recept a szokásos: vannak elrejtett input elemeink, labelek amik változtatják őket, és konténer elemek amiket az inputok állapota alapján mutatunk meg vagy rejtünk el.</p>
+			<p>Az előző példákban könnyebb dolgunk volt, mert a kapcsolgatott inputok és a hozzájuk tartozó elrejtendő-megjelenítendő tartalom testvérek voltak a dom fában, és el voltak választva a többi opciótól a saját li szülőjükben.</p>
+			<p>Most viszont egy szinten van az összes váltogatandó konténer, hogy találjuk így meg a kiválasztott :checked inputnak megfelelő megjelenítendő tartalmat?</p>
+			<p>Itt már kezd kicsit hosszadalmas lenni a CSS-ünk. nth-of-type és nth-child pszeudo osztályokat használtam, amikkel index alapján tudtam összepárosítani az inputokat a hozzájuk tartozó divvel: az első inputot az elsővel, a másodikat a másodikkal, és így tovább.</p>
+			<p>Ezen a ponton gyakorlatilag kaptunk egy általános megoldást állapotok kapcsolgatására a UI-unkon. Ha valahol az oldal elején elrejtünk néhány radio vagy checkbox inputot, azokat bárhonnan kapcsolgathatjuk néhány rájuk mutató labellel, és nagyjából bármit formázhatunk ami utánuk következik az állapotaik alapján.</p>
+		</li>
+		<li>
+			<p>Az nth-child és társai is ie9-től felfele támogatottak, szóval itt sem veszítettünk felhasználókat.</p>
+		</li>
+		<li>
+			<p>ígértem még carouselt, de most már biztos ki tudjátok találni :)</p>
+		</li>
+		<li>
+			<p>Nézzünk egy egyszerű macskás carouselt.</p>
+		</li>
+		<li>
+			<p>Van egy adag rejtett rádiógombunk az állapot eltárolására, egy macskalista amit tologatunk, és néhány label amivel az inputokat kattintgatjuk.</p>
+			<p>A kiválasztott rádiógombnak megfelelő mértékben toljuk el a macskalistát. Az előző-következő gombok helyén pedig cserélgetjük a labeleket a mobilmenühöz hasonló megoldással, így a tovább nyíl mindig egy label a következő állapot inputjára.</p>
+		</li>
+		<li>
+			<p>Térjünk kicsit vissza a krokodilokhoz így a végére.</p>
+		</li>
+		<li>
+			<p>Az #enemy divben látjuk a krokodilokat. Minden krokodil egy rádió típusú inputmező.</p>
+			<p>A pontszámos kép a #score_11 div háttérképe. Fölötte rádiógombokat láttok, minden krokodilnak egyet, a krokodilnak megfelelő name attribútummal.</p>
+		</li>
+		<li>
+			<p>Ha eltalálunk egy krokodilt, két dolog történik:</p>
+			<ul>
+				<li>Mivel a krokodil inputot bepipáltuk, az animációja lenullázódik, tehát a krokodil eltűnik.</li>
+				<li>A neki megfelelő rádiógomb a pontszámos kép fölött eddig be volt pipálva, most már nincs. Ezzel visszakapta a magasságát, ennyivel lejjebb tolva a pontszámos képet, ami így egy pontot nő.</li>
+			</ul>
+			<p>Szóval így tud a CSS számolni. Varázslat!</p>
+		</li>
+		<li>
+			<p>Ennyi voltam, remélem adtam néhány új ötletet, próbáljátok ki, mutassátok meg, mit főztetek belőle!</p>
+		</li>
+		<li>
+			<p>Kíváncsi vagyok a véleményetekre, megtaláltok twitteren <a href="https://twitter.com/hubudibu" title="@hubudibu" target="_blank" >@hubudibu</a> néven, illetve a fenti email cím is elvileg működik.</p>
+			<p><a href="http://codepen.io/hubudibu/tag/webconf"  target="_blank" >A példák codepenen</a>,</p>
+			<p><a href="http://www.one-tab.com/page/-p32SLqvTiGQZgicT7jjIA"  target="_blank" >egy nagy rakás link ami nyitva volt amíg ezt írtam pedig itt</a>.</p>
+			<p>Köszi,</p>
+			<p>Anikó</p>
+		</li>
+	</ol>
+
+	<label for="noteExpander" class="noteExpander-label en">Show <span class="noteExpander-more">more</span> <span class="noteExpander-less">less</span></label>
+	<label for="noteExpander" class="noteExpander-label hu">Mutass <span class="noteExpander-more">többet</span> <span class="noteExpander-less">kevesebbet</span></label>
+
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-25923834-2', 'fejes.me');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>
+

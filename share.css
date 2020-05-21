@@ -1,0 +1,243 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot');
+	src:url('fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('fonts/icomoon.ttf') format('truetype'),
+		url('fonts/icomoon.woff') format('woff'),
+		url('fonts/icomoon.svg#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+/* ---------- base ---------- */
+
+html, body, div, iframe, ol, ul, h1, h2, p, li {
+	margin: 0;
+	padding: 0;
+	font: inherit;
+}
+
+body {
+	font: 14px/1.5 icomoon, 'Open Sans', Helvetica, Arial, sans-serif;
+	color: #333;
+	background: #e3e3e3 url(ticks/ticks.png);
+	text-shadow: 0 -1px #fff;
+}
+
+a {
+	color: #007461;
+	text-decoration: none;
+}
+a:hover, a:focus {
+	text-decoration: underline;
+}
+
+
+/* ---------- layout ---------- */
+
+.wrap {
+	margin: 30px auto;
+	max-width: 880px;
+}
+.gprez, .meta {
+	display: inline-block;
+	vertical-align: bottom;
+}
+.gprez {
+	margin: 0 -1.5em 1.5em 3em;
+}
+.gprez iframe {
+	display: block;
+}
+.meta {
+	max-width: 260px;
+	margin: 0 1em 1.5em 3em;
+}
+.notes {
+	max-width: 534px;
+	height: 140px;
+	overflow: auto;
+	padding-left: 3em;
+	resize: vertical;
+}
+
+
+/* ---------- google presentation embed ---------- */
+
+.gprez {
+	box-shadow: 0 -1px rgba(255, 255, 255, 0.8), 0 0 5px rgba(0, 0, 0, 0.5);
+	border-bottom: 1px solid #000;
+	border-radius: 3px;
+	overflow: hidden;
+}
+
+
+/* ---------- speaker notes ---------- */
+
+.notes li {
+	margin-bottom: 1em;
+}
+
+.notes p, .notes ul {
+	margin-bottom: .3em;
+}
+
+.notes li li {
+	margin: 0 0 0 1em;
+	list-style: disc;
+}
+
+
+/* ---------- languageToggler ---------- */
+
+label,
+.languageToggler {
+	margin: 1em -2px 0;
+	padding: 0 2px;
+	font-style: italic;
+	font-weight: 300;
+	color: #777;
+	cursor: pointer;
+	transition: background .2s;
+}
+
+label:hover,
+label:focus,
+.languageToggler:hover,
+.languageToggler:focus {
+	text-decoration: none;
+	background: rgba(255,255,255,.5);
+}
+
+#hu, #en,
+.hu,
+.languageToggler,
+#hu:not(:target) ~ .noteExpander-label.hu,
+#hu:target ~ .en,
+#hu:target ~ div .en,
+#hu:target ~ .noteExpander-label.en {
+	display: none;
+}
+
+#hu:target ~ .hu,
+#hu:target ~ div .hu {
+	display: block;
+}
+#hu:target ~  div .languageToggler,
+#hu:not(:target) ~ div .languageToggler,
+#hu:target ~ div .meta.hu {
+	display: inline-block;
+}
+
+
+/* ---------- noteExpander ---------- */
+
+.noteExpander-label {
+	margin: 1em 0 1em 3em;
+}
+
+#noteExpander,
+.noteExpander-label,
+.noteExpander-label span {
+	display: none;
+}
+
+#noteExpander:checked ~ .notes {
+	height: auto;
+}
+
+#noteExpander:checked ~ .noteExpander-label,
+#noteExpander:not(:checked) ~ .noteExpander-label,
+#noteExpander:checked ~ label .noteExpander-less,
+#noteExpander:not(:checked) ~ label .noteExpander-more {
+	display: inline-block;
+}
+
+
+/* ---------- meta box ---------- */
+
+h1 {
+	font-family: Merriweather, serif;
+	font-size: 1.3em;
+	font-weight: bold;
+}
+
+.me {
+	margin: 2em 0;
+}
+
+.av {
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	overflow: hidden;
+	border-radius: 100%;
+	box-shadow: 0 -1px rgba(255, 255, 255, 0.8), 0 0 5px rgba(0, 0, 0, 0.5);
+	border-bottom: 1px solid #000;
+	float: left;
+	margin-right: 1em;
+}
+.av img {
+	height: 100%;
+}
+.name {
+	display: block;
+	font-family: Merriweather, serif;
+	font-weight: bold;
+}
+
+.tw, .in, .cp {
+	display: inline-block;
+	width: 28px;
+	height: 28px;
+	line-height: 1;
+	white-space: nowrap;
+	font-size: 0;
+	overflow: hidden;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	position: relative;
+	color: #333;
+	padding: 3px;
+	margin: 0 -3px;
+	text-shadow: 0 -1px rgba(255, 255, 255, 0.8), 0 0 5px rgba(0, 0, 0, 0.5);
+	transition: text-shadow .5s, color .3s;
+}
+.tw:before, .in:before, .cp:before {
+	content: "";
+	display: inline-block;
+	width: 31px;
+	height: 28px;
+	font-size: 28px;
+}
+.tw:hover, .in:hover, .cp:hover,
+.tw:focus, .in:focus, .cp:focus {
+	text-shadow: 0 1px rgba(255, 255, 255, 0.8), 0 0 3px rgba(0, 0, 0, 0.7);
+	color: #000;
+	padding: 4px 3px 2px;
+}
+
+.cp:before {
+	content: "\e600";
+}
+.tw:before {
+	content: "\e602";
+}
+.in:before {
+	content: "\e601";
+}
+
+
+
+
+
+
+
+
+
